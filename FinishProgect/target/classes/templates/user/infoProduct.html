@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<link th:href="@{/css/product.css}" type="text/css" rel="stylesheet">
+<link th:href="@{/css/index.css}" type="text/css" rel="stylesheet">
+<head>
+    <meta charset="UTF-8">
+    <title>Информация о товаре</title>
+</head>
+<body>
+<header>
+    <div class="conteiner">
+        <div class="row">
+            <div class="col-md-6  text-md-start text-sm-center col-sm-12
+                col-12">
+                <a class="zagolovok" href="/auth/index1">ТРАВЯНОЙ ЧАЙ</a>
+            </div>
+            <div class="col-md-2   col-sm-12
+                text-center
+                col-12 align-self-center">
+                <a class="zagolovok" href="/product">Каталог</a>
+            </div>
+            <div class="col-md-2   col-sm-12
+                text-center
+                col-12 align-self-center">
+                <a class="zagolovok" href="/auth/about">О пользе чая</a>
+            </div>
+            <div class="col-md-2   col-sm-12
+                text-center
+                col-12 align-self-center">
+                <a class="zagolovok" href="/auth/login">Вход</a>
+            </div>
+        </div>
+    </div>
+</header>
+<p th:text="'Наименование: ' + ${product.getTitle()}"></p>
+<p th:text="'Описание: ' + ${product.getDescription()}"></p>
+<p th:text="'Цена: ' + ${product.getPrice()}"></p>
+<p th:text="'Склад: ' + ${product.getWarehouse()}"></p>
+<p th:text="'Продавец: ' + ${product.getSeller()}"></p>
+<p th:text="'Категория: ' + ${product.getCategory().getName()}"></p>
+
+<div th:each="img : ${product.getImageList()}">
+    <img th:src="'/img/' + ${img.getFileName()}" width="300px">
+</div>
+</body>
+</html>

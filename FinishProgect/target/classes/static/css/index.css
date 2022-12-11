@@ -1,0 +1,113 @@
+body{
+    background-color: white;
+}
+header{
+    background-color: #e6742b;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+footer{
+    display: flex;
+    position: relative;
+    overflow: hidden;
+    margin-top: 10px;
+}
+a{
+    color: brown;
+    align-self: center;
+    font-size: 20px;
+    text-decoration: none;
+    font: 20px Arial;
+}
+h1{
+    color: white;
+    margin: 30px;
+}
+h6{
+    color: #fdf5ee;
+}
+h3{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: 20px;
+}
+
+.section{
+    min-height: 500px;
+    padding-top: 10px;
+    border-bottom: 2px solid black;
+}
+.section-last{
+    padding-top: 50px;
+    min-height: 200px;
+}
+
+.section-tree{
+    padding-top: 50px;
+    min-height: 200px;
+}
+
+.btn-delete{
+    background-color: red;
+    border: 1px solid rgb(0, 0, 0);
+    font-size: 20px;
+    padding: 5px;
+    width: 150px;
+    margin: 10px;
+    cursor: pointer;
+    color: white;
+}
+.grid{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr );
+    grid-template-rows: repeat(1, 1fr );
+}
+.grid-item{
+    text-align: center;
+}
+
+.item1{
+    grid-column: 4/3;
+}
+.input{
+    width: 325px;
+}
+@media(max-width: 391px) {
+    img {
+        width: 200px;
+    }
+}
+
+p{
+    font-size: 20px;
+}
+.zagolovok{
+    padding: 30px;
+    color: #fdf5ee;
+    text-decoration: none;
+}
+.logout{
+    margin: 30px;
+}
+.otstup{
+    margin: 30px;
+}
+.ssilki{
+    color: brown;
+    align-self: center;
+    font-size: 20px;
+    text-decoration: none;
+    font: 20px Arial;
+}
+.btn-primary {
+    background-color: white;
+    border-color:black;
+    color: black;
+}
+
+
+
+
+
+
+

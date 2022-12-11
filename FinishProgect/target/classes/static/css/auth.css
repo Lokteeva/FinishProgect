@@ -1,0 +1,68 @@
+#forma
+{
+    background: white;
+    margin: 0 auto ;
+    padding: 25px 0 0;
+    text-align: center;
+    width: 500px;
+    height: 440px;
+}
+#forma input[type="text"],
+#forma input[type="password"],
+#forma input[type="date"],
+#forma input[type="email"]
+{
+    border: 1px solid grey;
+    font: 14px Arial;
+    margin: 10px;
+    padding: 15px 10px 15px 40px;
+    width: 400px;
+    height: 40px;
+    /*background: url(icons.png) no-repeat;*/
+}
+font
+{
+    color: gray;
+    font: 14px Arial;
+}
+#username
+{
+    background-position:4px -71px !important
+}
+#Password
+{
+    background-position:4px -105px !important
+}
+#date
+{
+    background-position:4px -35px !important
+}
+#email
+{
+    background-position:4px -2px !important
+}
+#forma input[type="text"]:focus,
+#forma input[type="password"]:focus,
+#forma input[type="date"]:focus,
+#forma input[type="email"]:focus
+{
+    border: 2px solid orange;
+    outline:dotted;
+}
+#forma input[type="submit"]
+{
+    background: gold;
+    border: 1px solid darkorange;
+    width: 400px;
+    font: bold 16px Arial ;
+    height: 50px;
+    margin-top: 15px;
+}
+#forma input[type="submit"]:hover
+{
+    background:darkorange;
+}
+
+
+
+

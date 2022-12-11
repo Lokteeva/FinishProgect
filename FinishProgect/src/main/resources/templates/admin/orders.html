@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Просмотр заказов</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link th:href="@{/css/index.css}" type="text/css" rel="stylesheet">
+</head>
+<body>
+<header>
+  <div class="conteiner">
+    <div class="row">
+      <div class="col-md-6  text-md-start text-sm-center col-sm-12
+                col-12">
+        <a class="zagolovok" href="/auth/index1">ТРАВЯНОЙ ЧАЙ</a>
+      </div>
+      <div class="col-md-2   col-sm-12
+                text-center
+                col-12 align-self-center">
+        <a class="zagolovok" href="/product">Каталог</a>
+      </div>
+      <div class="col-md-2   col-sm-12
+                text-center
+                col-12 align-self-center">
+        <a class="zagolovok" href="/auth/about">О пользе чая</a>
+      </div>
+      <div  class="col-md-2   col-sm-12
+                text-center
+                col-12 align-self-center nav-item">
+        <h6>Администратор</h6>
+      </div>
+    </div>
+  </div>
+</header>
+<div class="otstup">
+<form>
+  <input type="button" value="Вернуться" onclick="history.back()">
+</form>
+
+  <h3>Поиск заказов</h3>
+  <p >Введите последние 4 символа заказа:</p>
+  <form method="post" th:action="@{/admin/orders/search}">
+    <input type="text"  th:value="*{search_value}" name="search_value" id="findOrder">
+    <br> <br>
+    <button type="submit">Поиск</button>
+  </form>
+</div>
+      <div >
+        <h5>Результат поиска</h5>
+        <div th:each="order : ${search_order}">
+          <b><p th:text="'id=' + ${order.getId()}"></p></b>
+          <p th:text="'Дата: ' + ${order.getDateTime()}"></p>
+          <p th:text="'Наименование: ' + ${order.getProduct().getTitle()}"></p>
+          <p th:text="'Количество: ' + ${order.getCount()}"></p>
+          <p th:text="'Цена: ' + ${order.getPrice()}"></p>
+          <p>Покупатель:  <a th:href="@{/admin/person/info/{id}(id=${order.getPerson().getId()})}" th:text="${order.getPerson().getLogin()}"></a></p>
+          <p th:text="'Заказ № ' + ${order.getNumber()}"></p>
+          <p th:text="'Дата заказа: ' + ${#temporals.format(order.getDateTime(), 'dd-MMM-yyyy')}"></p>
+          <b> <p th:text="'Статус: ' + ${order.getStatus()}"></p></b>
+
+        </div>
+      </div>
+  <div class="text-center">
+    <h3 >История заказов</h3>
+    <div class="col-lg-11 mx-auto">
+      <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+        <table>
+          <thead>
+          <tr>
+            <th>id</th>
+            <th>Дата</th>
+            <th>Наименование</th>
+            <th>Кол-во</th>
+            <th>Стоимость</th>
+            <th>Номер заказа</th>
+            <th>Статус</th>
+            <th></th>
+          </tr>
+          </thead>
+          <tbody>
+          <form method="POST" th:action="@{/admin/orders/{id}(id=${order.getId()})}" th:each="order : ${orders}">
+
+            <tr>
+              <td><a th:href="@{/admin/orders/{id}(id=${order.getId()})}" th:text="${order.getId()}"></a></td>
+              <td th:text="${order.getDateTime()}"></td>
+              <td th:text="${order.getProduct().getTitle()}"></td>
+              <td th:text="${order.getCount()}"></td>
+              <td th:text="${order.getPrice()}"></td>
+              <td th:text="${order.getNumber()}"></td>
+              <td th:text="${order.getStatus()}"></td>
+              <td><a th:href="@{/admin/orders/{id}(id=${order.getId()})}" th:text="Изменить" ></a></td>
+            </tr>
+
+          </form>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
