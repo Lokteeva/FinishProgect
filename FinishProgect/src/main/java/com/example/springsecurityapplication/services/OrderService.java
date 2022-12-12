@@ -44,10 +44,6 @@ public class OrderService {
         Optional<Order> optionalOrder = orderRepository.findById(id);
         return optionalOrder.orElse(null);
     }
-    @Transactional
-    public List<Order> findByLastFourCharacters(String str){
-        List<Order> orders = orderRepository.findByLastFourCharacters(str);
-        return orders;
-    }
+
 }
 

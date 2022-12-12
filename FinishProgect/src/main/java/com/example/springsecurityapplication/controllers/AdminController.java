@@ -305,15 +305,11 @@ public class AdminController {
 
 //поиск заказа по 4 последним цифрам
     @PostMapping("/orders/search")
-    public String orderSearch(@RequestParam("search_value") String search, Model model){
-        if(search.length()>4) {
-            search=search.substring(search.length()-4);
-        }
-            model.addAttribute("search_order", orderService.findByLastFourCharacters(search));
-        model.addAttribute("person", personService.getAllPerson());
-        model.addAttribute("search_value", search);
-        model.addAttribute("orders", orderRepository.findAll());
-        return "/admin/orders";
+    public String productSearch(@RequestParam("search") String search, Model model) {
+        model.addAttribute("search_order", orderRepository.findByNumberLikeIgnoreCase("%" + search + "%"));
+        model.addAttribute("value_search", search);
+        model.addAttribute("orders", orderService.getAllOrders());
+        return "admin/orders";
     }
 
     @GetMapping("/orders/{id}")

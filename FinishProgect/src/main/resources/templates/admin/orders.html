@@ -33,6 +33,12 @@
     </div>
   </div>
 </header>
+<form th:method="POST" th:action="@{/logout}" th:align="right">
+  <input class="logout" type="submit" value="Выйти из личного кабинета" >
+</form>
+<div class="text-center">
+  <a href="/admin" >Вернуться в кабинет Администратора</a>
+</div>
 <div class="otstup">
 <form>
   <input type="button" value="Вернуться" onclick="history.back()">
@@ -41,7 +47,7 @@
   <h3>Поиск заказов</h3>
   <p >Введите последние 4 символа заказа:</p>
   <form method="post" th:action="@{/admin/orders/search}">
-    <input type="text"  th:value="*{search_value}" name="search_value" id="findOrder">
+    <input type="search"  th:value="*{value_search}" name="search" id="search">
     <br> <br>
     <button type="submit">Поиск</button>
   </form>
